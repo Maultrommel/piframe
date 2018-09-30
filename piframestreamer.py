@@ -282,7 +282,7 @@ if __name__ == '__main__':
 			     
     print "starting"
     factory.protocol = BroadcastServerProtocol
-    factory.setProtocolOptions(allowHixie76=True)
+#    factory.setProtocolOptions(allowHixie76=True)
 	
     listenWS(factory)
     webdir = File("/home/pi/piframe/www/")

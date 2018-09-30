@@ -40,7 +40,7 @@ class TempProbe(threading.Thread):
                 temp = float(result_list[-1])/1000 # temp in Celcius
                 temp = temp + self.correctionFactor # correction factor
                 #if you want to convert to Celcius, comment this line
-                temp = (9.0/5.0)*temp + 32
+#                temp = (9.0/5.0)*temp + 32
                 if crcLine.find("NO") > -1:
                     temp = -999
                 self.currentTemp = round(temp*100)/100

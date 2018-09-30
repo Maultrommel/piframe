@@ -186,7 +186,8 @@ class BroadcastServerProtocol(WebSocketServerProtocol):
 
 class BroadcastServerFactory(WebSocketServerFactory):
 	def __init__(self, url, debug=False, debugCodePaths=False):
-		WebSocketServerFactory.__init__(self, url, debug=debug, debugCodePaths=debugCodePaths)
+#		WebSocketServerFactory.__init__(self, url, debug=debug, debugCodePaths=debugCodePaths)
+		WebSocketServerFactory.__init__(self, url, debug=debug)
 		global clients,picframeclients,current_img
 		self.current_img=current_img
 		self.frameconfig = frameconfig(configdir)
@@ -276,8 +277,9 @@ if __name__ == '__main__':
     # ServerFactory = BroadcastPreparedServerFactory
 	
     factory = ServerFactory("ws://localhost:9000",
-                            debug=debug,
-                            debugCodePaths=debug)
+#                            debug=debug,
+#                            debugCodePaths=debug)
+			     debug=debug)	
     print "starting"
     factory.protocol = BroadcastServerProtocol
     factory.setProtocolOptions(allowHixie76=True)

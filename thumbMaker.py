@@ -32,6 +32,9 @@ if __name__ == '__main__':
 	if len(sys.argv) > 1:
 		walktree(sys.argv[1],addtolist)
 		thumbdir=sys.argv[2]
+		if thumbdir.endswith('/'):
+			thumbdir=thumbdir.rstrip('/')
+			print 'Modified thumbdir: ', thumbdir
 		for file in file_list:
 			filename,ext = file.replace(sys.argv[1],'').split('.')
 			thumbfilename=thumbdir+'/'+filename+'_thumb.'+ext

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from PIL import Image
+import os
 
 def resize_and_crop(img_path, modified_path, size, file_type='PNG', crop_type='none'):
     """
@@ -56,4 +57,8 @@ def resize_and_crop(img_path, modified_path, size, file_type='PNG', crop_type='n
         img = img.resize((size[0], size[1]),
                 Image.ANTIALIAS)
         # If the scale is the same, we do not need to crop
+    path, file=os.path.split(modified_path)
+    if not os.path.exists(path):
+    	os.makedirs(path)
+	print 'created directory: ',path
     img.save(modified_path,file_type)
